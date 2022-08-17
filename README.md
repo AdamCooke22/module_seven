@@ -2,21 +2,15 @@
 
 In this challenge our job is to build a financial database and web application by using SQL, Python, and the Voila library to analyze the performance of a hypothetical fintech ETF. In recent years, finance has had an explosion in passive investing. Passive investing means that you invest in a basket of assets that’s called an exchange-traded fund (ETF). This way, you don’t spend time researching individual stocks or companies or take the risk of investing in a single stock. ETFs offer more diversification. For this challenge we be analyzing ETF data from a SQL database and creating a professionally styled and formatted interactive visualizations.
 
+We start this challenge by initiating our SQLite database and populating the database with records from a seed file in the startercode. We then create an engine so that we can interact with the database using the sql.create_engine functoin. After that we can use the engine.table_names function to see if our integration was successful and to see the tables that we will be working with. 
 
+When wanting to analyze a particular table in the database we are going to need to use queries. Queries allow for us to read through the database and by using the pd.read_sq_table function, it also allows for us to create dataframes from the database. With the dataframes that we created we can provide futher analysis and we able to plot out the data to help visualize and enhance the readability of the data.
 
+To optimize our queries we can use additional functions like WHERE, which allows for the use of conditional statements; ORDER, which allows for the use of sorting the resulting data in a particular manner; and LIMIT, which allows for the use of displaying only the top number of results.
 
+To view data from multiple tables we can adjust our query statements to include the INNER JOIN command to join each table based on the data from a particular column.
 
-
-
-
-To calculate and plot the number of housing units per year we want to use the groupby function to group the data by year. When using the group by function we also have to aggregate the results, and to do this we are going to use the mean function. To plot our resuting dataframe we want to use the .hvplot and .bar function, and make sure to specify what variables we want the axes to correlate. 
-
-To calculate the average sale prices per square foot we create a new dataframe like before, using the groupby function along with the mean aggregation. This time we only want to deal with the sale prices and gross rent columns so we use the drop function to filter out the housing units column. To plot our resulting dataframe we use the hvplot and line function to produce a line graph that visualizes the sale prices per square foot and the gross rent over the seven year period in the dataframe.
-
-To compare the average sale prices by neighborhood we use widgets help create an interactive plot for each neighborhood. We would use the same syntax as before except inside the parentheses for the line function we would also include a groupby function and have it grouped by neighborhoods so there will be a widget on the side to specify what neighborhood we would like to view.
-
-To build an interactive map of the neighborhoods we are going to have to read another csv file that has the respective coordinates for each of the neighborhoods, and we are going to specify that the neighborhood column is going to be the index column. We are then going to create another dataframe just like we did in the beginning of the challenge with using the groupby function and grouping the data by neighborhoods this time as well as taking the average of the results. We do this so that the index of this dataframe will be the same as the index of the dataframe with the coordinates. We want to combine the two dataframes by using the concat function to concatenate the two dataframe and its going to add the coordinates to our main dataframe that we have been working with prior. Some of the neighborhoods do not have coordinates listed and or some neigborhoods from the coordinates dataframe do not have housing information so to get rid of the NaN values we see we use the dropna function. To actually plot the map we use the hvplot and points function while specifying that we want the map displayed based on the coordinates and set the appropriate variables for the colors and sizes. Once that is done you can hover and use the other interactive features to see the gross rent and sale price per square foot for each neighborhood on the map. 
-
+To finish off this challenge we use the Voila librarh to deploy our notebook as a web application to view all of the outputs from our code.
 
 ---
 
